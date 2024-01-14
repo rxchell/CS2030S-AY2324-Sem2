@@ -19,6 +19,7 @@ The types of assessments include:
 
 
 <h1>Assessment Weightage</h1>
+
 > Quizzes: 5%
 
 > Programming Exercises: 5%
