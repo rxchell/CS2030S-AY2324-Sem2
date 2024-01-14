@@ -1,0 +1,14 @@
+Description
+This module is a follow-up to CS1101S. It explores two modern programming paradigms, object-oriented programming and functional programming. Through a series of integrated assignments, students will learn to develop medium-scale software programs in the order of thousands of lines of code and tens of classes using object-oriented design principles and advanced programming constructs available in the two paradigms. Topics include objects and classes, composition, association, inheritance, interface, polymorphism, abstract classes, dynamic binding, lambda expression, effect-free programming, first class functions, closures, continuations, monad, etc.
+
+Target Students
+Note that this is the "S" version CS2030, targets specifically at BComp(CS) students.  It is taught in a way that assumes the students have gone through CS1101S.  All other students, including exchange students, are advised to take the vanilla version (CS2030, without the "S" suffix).  Students who just transferred into the BComp(CS) without CS1101S background should contact the teaching team for advice. 
+
+Course Unit
+4
+
+Workload
+2-1-2-3-2
+
+Preclusion
+CS2030
