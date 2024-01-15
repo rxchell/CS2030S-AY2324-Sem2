@@ -41,6 +41,8 @@ Legacy control commands:
 
 `ls`: LiSt content in the current working directory
 
+-  To see a complete list of the options, refer to the man pages, `man ls`
+
 `ls -a`: To view all files, including hidden files
 
 - a file or directory with a name that starts with `.` is hidden from `ls`
@@ -59,10 +61,13 @@ Legacy control commands:
 
 `rmdir`: ReMove a subDIRectory in the current directory. Note that a directory must be empty before it can be removed.
 
-<H2>Command History</H2>
+<H1>Command History</H1>
 
 - `Ctrl+P` (previous)
 - `Ctrl+N` (next)
+
+
+<h1>File Management</h1>
 
 
 
