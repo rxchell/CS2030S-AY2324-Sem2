@@ -157,3 +157,72 @@ Legacy control commands:
 - `man man`: refer to Man Pages to find out more about the facility
 - `q`: exit `man`
 
+
+# File Permission Management
+## WHAT you can do to a file
+|permission|effect on file|effect on directory|
+| --- | --- | --- |
+| `r` read | reading the content of a file | read the names of the files in the directory
+|`w` write | writing into a file | create/delete/rename files in the directory
+| `x` execute |	executing a file| access contents and meta-info (size, creation time) of files in the directory
+
+### Symbolic notation
+`rwx` , `r-x`, `-wx` , where a `-` means that the corresponding permission is not given (in the order of `r`, `w`, `x`)
+
+### Numerical notation
+Uses a digit between 0 and 7, computed as a sum of the individual digit representing the permissions.
+| |numerical representation|
+| --- | --- | 
+|`r`|4
+| `w`| 2
+|`x`| 1
+|`r-x`| 5
+|`-wx`|3
+
+## WHO of file permissions
+
+Order:
+
+- `u`: user who owns the file
+- `g`: users in the same group as the user
+- `o`: all the other users
+ 
+E.g. permission of 644, or `rw-r--r--`, on a file means:
+
+- owner can read and write
+- group users can only read
+- all other users can only read
+
+
+## `ls -l (file name)`: Checking file permission
+
+## `chmod`: Change the permissions of a file / directory
+
+1 `$ chmod 666 test.txt` (add the permission w to both group and other users)
+
+2 `$ ls -l test.txt`
+
+3 `-rw-rw-rw-@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt`
+
+**OR**
+
+Specify the changes
+
+1 `$ chmod o-w test.txt` (remove the permission to write from others)
+
+2 `$ ls -l test.txt`
+
+3 `-rw-rw-r--@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt`
+
+### Common Scenarios for `chmod`
+
+-  Homework directory inSoC Unix server: Permission of `700` to prevent the directory that stores your homework from being accessible by other users
+-  `u+r` to give yourself the read permission to read a file (eg downloaded from the internet) that you do not have permission to read
+-  `u+x` execution permission to run a script or executable file
+
+
+
+
+
+
+
