@@ -74,16 +74,17 @@ Legacy control commands:
 
 <h3>Copy a file to another name</h3>
 
-1 `$ cp test.txt foo.txt`  (copies the file `test.txt` into `foo.txt`)
-
-2 `$ ls`
-
-3 `test.txt foo.txt`
-
+```Java
+1 $ cp test.txt foo.txt  // copies the file `test.txt` into `foo.txt`
+2 $ ls
+3 test.txt foo.txt
+```
 
 ### `cp -r` Copy the whole directory (recursively) 
 
-1 `$ cp -r ../workshop .`
+```Java
+1 $ cp -r ../workshop .
+```
 
 - In this eg, run `pwd` to double-check that you are in the directory called `copy` that is at the same level as `workshop`
 - `cp` takes in two arguments, the first is the source, the second is the destination.
@@ -96,57 +97,54 @@ Legacy control commands:
 
 - just like `cp`, `mv` takes in two arguments, the first is the source and the second is the destination
 
-1 `$ ls`
-
-2 `foo.txt test.txt`
-
-3 `$ mv foo.txt bar.txt` (**rename** foo.txt into bar.txt)
-
-4 `$ ls`
-
-5 `bar.txt test.txt`
-
+``` Java
+1 $ ls
+2 foo.txt test.txt
+3 $ mv foo.txt bar.txt  //rename foo.txt into bar.txt
+4 $ ls
+5 bar.txt test.txt
+```
 
 - If the **destination of `mv` is a directory**, however, **instead of renaming**, the mv commands **move** the source to the destination directory.
-1 `$ ls`
 
-2 `bar.txt test.txt` (Source)
-
-3 `$ mv ../copy/workshop/foo.txt .` (Destination)
-
-4 `$ ls`
-
-5 `bar.txt foo.txt test.txt` (moved `foo.txt` over to the current directory)
+```Java
+1 $ ls
+2 bar.txt test.txt // Source
+3 $ mv ../copy/workshop/foo.txt . // Destination
+4 $ ls
+5 bar.txt foo.txt test.txt // moved `foo.txt` over to the current directory
+```
 
 > If there is an existing file with the same name, `mv` will overwrite the existing file without warning. `mv -i` interactively asks you if you are sure if you want to overwrite a file. It is a good idea to always run mv -i. Hit  `Y` to continue overwriting the existing file. You can look up on the Internet on how to make `-i` the default using `alias` command in `.bashrc`.
 
 
 ## `rm`: ReMove files
 
-1 `$ ls`
-
-2 `bar.txt foo.txt test.txt` 
-
-3 `$ rm foo.txt`
-
-4 `$ ls`
-
-5 `bar.txt test.txt`
+``` Java
+1 $ ls
+2 bar.txt foo.txt test.txt
+3 $ rm foo.txt
+4 $ ls
+5 bar.txt test.txt
+```
 
 > `rm -i` interactively asks you if you are sure if you want to delete a file. It is a good idea to always run `rm -i`.
 
 
 ## `cat (filename)`: CATenate file content to screen. To quickly take a look at the content of the file 
 
-1 `$ cat test.txt`
-
-2 `This is a test file for learning Unix file management commands.`
+```Java
+1 $ cat test.txt
+2 This is a test file for learning Unix file management commands.
+```
 
 ### `less`: A variant of `cat`. Includes features to read each page leisurely. Useful for long files
 
-1 `$ less test.txt`
+``` Java
+1 $ less test.txt
+```
 
-- `<space>` to move down one pageb
+- `<space>` to move down one page
 - `b` to move Back up one page
 - `q` to Quit
 
@@ -198,21 +196,20 @@ E.g. permission of 644, or `rw-r--r--`, on a file means:
 
 ## `chmod`: Change the permissions of a file / directory
 
-1 `$ chmod 666 test.txt` (add the permission w to both group and other users)
-
-2 `$ ls -l test.txt`
-
-3 `-rw-rw-rw-@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt`
+``` Java
+1 $ chmod 666 test.txt // add the permission w to both group and other users
+2 $ ls -l test.txt
+3 -rw-rw-rw-@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt
+```
 
 **OR**
 
 Specify the changes
-
-1 `$ chmod o-w test.txt` (remove the permission to write from others)
-
-2 `$ ls -l test.txt`
-
-3 `-rw-rw-r--@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt`
+```Java
+1 $ chmod o-w test.txt // remove the permission to write from others
+2 $ ls -l test.txt
+3 -rw-rw-r--@ 1 ooiwt  staff  64 Jul 28 09:52 test.txt
+```
 
 ### Common Scenarios for `chmod`
 
@@ -223,10 +220,10 @@ Specify the changes
 
 # Standard Input/Output
 `wc (filename)`  counts the number of lines, words, characters in the given file 
-
-1 `$ wc test.txt`
-
-2 `      1      11      64 test.txt`
+```Java
+1 $ wc test.txt
+2       1      11      64 test.txt
+```
 
 ## Output Redirection
 `>` and `>>` to redirect the standard output to a file
@@ -234,49 +231,38 @@ Specify the changes
 - `>` will overwrite the given file
 - `>>` will concatenate into the given file
 
-1 `$ wc test.txt > test.count` (redirects the output from `wc` to a file named `test.count`)
-
-2 `$ cat test.count` (check by running `cat` on the new file `test.count`)
-
-3 `    1      11      64 test.txt` (original output from `wc` is now stored in the file `test.count`)
-
-
+```Java
+1 $ wc test.txt > test.count // redirects the output from `wc` to a file named `test.count`
+2 $ cat test.count`  // check by running `cat` on the new file `test.count`
+3     1      11      64 // test.txt (original output from `wc` is now stored in the file `test.count`
+```
+ 
 If we repeat the command `wc test.txt > test.count` again, the file has been overwritten with the output from `wc` again. But if we replace `>` with `>>`, a new line is concatenated into  `test.count`. So the file now has two lines.
 
-1 `$ wc test.txt > test.count`
-
-2 `$ cat test.count`
-
-3 `       1      11      64 test.txt`
-
-4 `$ wc test.txt >> test.count`
-
-5 `$ cat test.count`
-
-6 `       1      11      64 test.txt`
-
+```Java
+1 $ wc test.txt > test.count 
+2 $ cat test.count
+3        1      11      64 test.txt
+4 $ wc test.txt >> test.count
+5 $ cat test.count
+6        1      11      64 test.txt
+```
 
 ## Input Redirection: `<` is used to redirect a file into the standard input
 
 - So, instead of reading from the keyboard, we can now read from a file.
 - Commands such as `cat` and `wc` already support reading from a file directly, so there is no difference in terms of functionality to run the commands by passing in the file name, or by using the `<` operator.
 
-
-1 `$ wc test.txt`
-
-2 `       1      11      64 test.txt`
-
-3 `$ wc < test.txt`
-
-4 `       1      11      64`
-
-5 `$ cat test.txt`
-
-6 `This is a test file for learning Unix file management commands.`
-
-7 `$ cat < test.txt`
-
-8 `This is a test file for learning Unix file management commands.`
+```Java
+1 $ wc test.txt
+2        1      11      64 test.txt
+3 $ wc < test.txt
+4        1      11      64
+5 $ cat test.txt
+6 This is a test file for learning Unix file management commands.
+7 $ cat < test.txt
+8 This is a test file for learning Unix file management commands.`
+```
 
 Note the slight difference in the output format of the second `wc` above -- it no longer prints the file name since from `wc` points of view, it is read from the standard input and not from a file, so it is not aware of the file named `test.txt`
 
