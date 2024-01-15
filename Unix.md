@@ -124,9 +124,13 @@ Legacy control commands:
 ## `rm`: ReMove files
 
 1 `$ ls`
-2 `bar.txt foo.txt test.txt`
+
+2 `bar.txt foo.txt test.txt` 
+
 3 `$ rm foo.txt`
+
 4 `$ ls`
+
 5 `bar.txt test.txt`
 
 > `rm -i` interactively asks you if you are sure if you want to delete a file. It is a good idea to always run `rm -i`.
@@ -135,6 +139,7 @@ Legacy control commands:
 ## `cat`: CATenate file content to screen. To quickly take a look at the content of the file 
 
 1 `$ cat test.txt`
+
 2 `This is a test file for learning Unix file management commands.`
 
 <h3> `less`: A variant of `cat`. Includes features to read each page leisurely. Useful for long files</h3>
