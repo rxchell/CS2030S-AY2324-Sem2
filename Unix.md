@@ -55,19 +55,100 @@ Legacy control commands:
 
 `ls -l`: display almost all the file information, include the size of the file and the date of modification
 
-`mkdir`: MaKe a subDIRectory with the given name in the current directory.
+`mkdir (name of file)`: MaKe a subDIRectory with the given name in the current directory.
 
-`cd`: cd: Change the current working directory from one to another
+`cd`: Change the current working directory from one to another
 
-`rmdir`: ReMove a subDIRectory in the current directory. Note that a directory must be empty before it can be removed.
+`rmdir (name of file)`: ReMove a subDIRectory in the current directory. Note that a directory must be empty before it can be removed.
 
-<H1>Command History</H1>
+# Command History
 
 - `Ctrl+P` (previous)
 - `Ctrl+N` (next)
 
 
-<h1>File Management</h1>
+# File Management
 
 
+## `cp`: CoPy files 
+
+<h3>Copy a file to another name</h3>
+
+1 `$ cp test.txt foo.txt`  (copies the file `test.txt` into `foo.txt`)
+
+2 `$ ls`
+
+3 `test.txt foo.txt`
+
+
+### `cp -r` Copy the whole directory (recursively) 
+
+1 `$ cp -r ../workshop .`
+
+- In this eg, run `pwd` to double-check that you are in the directory called `copy` that is at the same level as `workshop`
+- `cp` takes in two arguments, the first is the source, the second is the destination.
+- `.` to copy the whole subtree of `workshop` over the current directory
+- `ls` to double-check that the workshop directory exists under `workshop`
+> If there is an existing file with the same name, `cp` will **overwrite** the existing file without warning.
+
+
+## `mv`: MoVe or rename files
+
+- just like `cp`, `mv` takes in two arguments, the first is the source and the second is the destination
+
+1 `$ ls`
+
+2 `foo.txt test.txt`
+
+3 `$ mv foo.txt bar.txt` (**rename** foo.txt into bar.txt)
+
+4 `$ ls`
+
+5 `bar.txt test.txt`
+
+
+- If the **destination of `mv` is a directory**, however, **instead of renaming**, the mv commands **move** the source to the destination directory.
+1 `$ ls`
+
+2 `bar.txt test.txt` (Source)
+
+3 `$ mv ../copy/workshop/foo.txt .` (Destination)
+
+4 `$ ls`
+
+5 `bar.txt foo.txt test.txt` (moved `foo.txt` over to the current directory)
+
+> If there is an existing file with the same name, `mv` will overwrite the existing file without warning. `mv -i` interactively asks you if you are sure if you want to overwrite a file. It is a good idea to always run mv -i. Hit  `Y` to continue overwriting the existing file. You can look up on the Internet on how to make `-i` the default using `alias` command in `.bashrc`.
+
+
+## `rm`: ReMove files
+
+1 `$ ls`
+2 `bar.txt foo.txt test.txt`
+3 `$ rm foo.txt`
+4 `$ ls`
+5 `bar.txt test.txt`
+
+> `rm -i` interactively asks you if you are sure if you want to delete a file. It is a good idea to always run `rm -i`.
+
+
+## `cat`: CATenate file content to screen. To quickly take a look at the content of the file 
+
+1 `$ cat test.txt`
+2 `This is a test file for learning Unix file management commands.`
+
+<h3> `less`: A variant of `cat`. Includes features to read each page leisurely. Useful for long files</h3>
+
+1 `$ less test.txt`
+
+- `<space>` to move down one pageb
+- `b` to move Back up one page
+- `q` to Quit
+
+
+## `man`: Online MANual
+
+- `man ls`: information about any Unix command
+- `man man`: refer to Man Pages to find out more about the facility
+- `q`: exit `man`
 
