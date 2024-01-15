@@ -28,5 +28,41 @@ Legacy control commands:
 `..` Parent directory 
 
 
-<h1></h1>
+<h1>Specifying a path</h1>
+
+**Absolute path**: Independent of the current working directory. Always start with `/` or `~`
+
+**Relative path**: Dependent on the current working directory. Use `..` when going up a tree. Never starts with `/`
+
+
+<h1>Directory-related Commands</h1>
+
+`pwd`: Print Current Working directory
+
+`ls`: LiSt content in the current working directory
+
+`ls -a`: To view all files, including hidden files
+
+- a file or directory with a name that starts with `.` is hidden from `ls`
+- eg `.vimrc`, the configuration file for `vim`
+- eg `.ssh`, the directory to store your SSH keys and configuration
+
+`ls -F`: for more information
+
+- `/` beside the filename tells you that the file is a directory
+
+`ls -l`: display almost all the file information, include the size of the file and the date of modification
+
+`mkdir`: MaKe a subDIRectory with the given name in the current directory.
+
+`cd`: cd: Change the current working directory from one to another
+
+`rmdir`: ReMove a subDIRectory in the current directory. Note that a directory must be empty before it can be removed.
+
+<H2>Command History</H2>
+
+- `Ctrl+P` (previous)
+- `Ctrl+N` (next)
+
+
 
