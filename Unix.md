@@ -136,13 +136,13 @@ Legacy control commands:
 > `rm -i` interactively asks you if you are sure if you want to delete a file. It is a good idea to always run `rm -i`.
 
 
-## `cat`: CATenate file content to screen. To quickly take a look at the content of the file 
+## `cat (filename)`: CATenate file content to screen. To quickly take a look at the content of the file 
 
 1 `$ cat test.txt`
 
 2 `This is a test file for learning Unix file management commands.`
 
-<h3> `less`: A variant of `cat`. Includes features to read each page leisurely. Useful for long files</h3>
+### `less`: A variant of `cat`. Includes features to read each page leisurely. Useful for long files
 
 1 `$ less test.txt`
 
@@ -221,6 +221,59 @@ Specify the changes
 -  `u+x` execution permission to run a script or executable file
 
 
+# Standard Input/Output
+`wc (filename)`  counts the number of lines, words, characters in the given file 
+
+1 `$ wc test.txt`
+
+2 `      1      11      64 test.txt`
+
+## Output Redirection
+`>` and `>>` to redirect the standard output to a file
+
+- `>` will overwrite the given file
+- `>>` will concatenate into the given file
+
+1 `$ wc test.txt > test.count` (redirects the output from `wc` to a file named `test.count`)
+
+2 `$ cat test.count` (check by running `cat` on the new file `test.count`)
+
+3 `    1      11      64 test.txt` (original output from `wc` is now stored in the file `test.count`)
+
+
+If we repeat the command `wc test.txt > test.count` again, the file has been overwritten with the output from `wc` again. But if we replace `>` with `>>`, a new line is concatenated into  `test.count`. So the file now has two lines.
+
+1 `$ wc test.txt > test.count`
+
+2 `$ cat test.count`
+
+3 `       1      11      64 test.txt`
+
+4 `$ wc test.txt >> test.count`
+
+5 `$ cat test.count`
+
+6 `       1      11      64 test.txt`
+
+
+## Input Redirection: `<` is used to redirect a file into the standard input
+
+- So, instead of reading from the keyboard, we can now read from a file.
+- Commands such as `cat` and `wc` already support reading from a file directly, so there is no difference in terms of functionality to run the commands by passing in the file name, or by using the `<` operator.
+
+
+1 `$ wc test.txt`
+
+2 `       1      11      64 test.txt`
+$ wc < test.txt
+       1      11      64
+$ cat test.txt
+This is a test file for learning Unix file management commands.
+$ cat < test.txt
+This is a test file for learning Unix file management commands.
+Note the slight difference in the output format of the second wc above -- it no longer prints the file name since from wc points of view, it is read from the standard input and not from a file, so it is not aware of the file named test.txt
+
+In most CS programming assignments, however, to keep things simple, you will be asked to read from the standard input only, so the < is a great time-saver -- you do not have to repeatedly type in the same input data over and over from the keyboard. You can just save the input data in a file, then redirect it to standard input with the < operator.
 
 
 
