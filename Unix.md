@@ -265,15 +265,22 @@ If we repeat the command `wc test.txt > test.count` again, the file has been ove
 1 `$ wc test.txt`
 
 2 `       1      11      64 test.txt`
-$ wc < test.txt
-       1      11      64
-$ cat test.txt
-This is a test file for learning Unix file management commands.
-$ cat < test.txt
-This is a test file for learning Unix file management commands.
-Note the slight difference in the output format of the second wc above -- it no longer prints the file name since from wc points of view, it is read from the standard input and not from a file, so it is not aware of the file named test.txt
 
-In most CS programming assignments, however, to keep things simple, you will be asked to read from the standard input only, so the < is a great time-saver -- you do not have to repeatedly type in the same input data over and over from the keyboard. You can just save the input data in a file, then redirect it to standard input with the < operator.
+3 `$ wc < test.txt`
+
+4 `       1      11      64`
+
+5 `$ cat test.txt`
+
+6 `This is a test file for learning Unix file management commands.`
+
+7 `$ cat < test.txt`
+
+8 `This is a test file for learning Unix file management commands.`
+
+Note the slight difference in the output format of the second `wc` above -- it no longer prints the file name since from `wc` points of view, it is read from the standard input and not from a file, so it is not aware of the file named `test.txt`
+
+> In most CS programming assignments, however, to keep things simple, you will be asked to read from the standard input only, so the `<` is a great time-saver -- you do not have to repeatedly type in the same input data over and over from the keyboard. You can just save the input data in a file, then redirect it to standard input with the `<` operator.
 
 
 
