@@ -28,4 +28,4 @@ class Ex0 {
         sc.close();
     }
 }
-~     
+  
