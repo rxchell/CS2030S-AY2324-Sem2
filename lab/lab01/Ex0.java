@@ -8,7 +8,7 @@ class Ex0 {
 
         for (int i = 0; i < numOfPoints; i++) {
             Point p = new RandomPoint(0, 1, 0, 1);
-            double distance = Math.sqrt(Math.pow(p.getX() - 0.5, 2) + Math.  pow(p.getY() - 0.5, 2));
+            double distance = Math.sqrt((p.getX() - 0.5)*(p.getX()-0.5) + (p.getY()-0.5)*(p.getY()-0.5));
             if (distance <= 0.5) {
                 pointsInCircle++;
             }
