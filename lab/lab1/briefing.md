@@ -15,5 +15,5 @@ BankEvent
 
 Encapsulation 
 - 'customer' should not access info from `counter`
-- 
+  
 
