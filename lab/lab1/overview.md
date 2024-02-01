@@ -41,6 +41,27 @@ new Simulator(sim).run();     // call run
 - The simulation stops running if there are no more events to simulate.
 
 ### `BankSimulation` class 
+- concrete implementation of a Simulation
+
+- reading the inputs from the standard inputs,
+- initialize the bank counters (represented with boolean available arrays)
+- initialize the events corresponding to customer arrivals
+- return the list of customer arrival events to the Simulator object when getInitialEvent is called.
+
+- Each customer has an ID. The first customer has id 0, the next one is 1, and so on.
+- Each counter has an ID, numbered from 0, 1, 2 and onwards.
+
+### `BankEvent` class (replace with new classes)
+- concrete implementation of Event
+
+- This class overrides the simulate method to simulate the customer and counter behavior.
+
+A BankEvent instance can be tagged as either an arrival event, service-begin event, service-end event, or departure event.
+- Arrival: the customer arrives. It finds the first available bank counter (scanning from ID upwards) and goes to the counter for service immediately. A service-begin event is generated. If no counter is available, it departs. A departure event is generated.
+- Service-begin: the customer is being served. A service-end event scheduled at the time (current time + service time) is generated.
+- Service-end: the customer is done being served and departs immediately. A departure event is generated.
+- Departure: the customer departs.
+
 
 
 
