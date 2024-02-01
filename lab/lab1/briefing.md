@@ -14,6 +14,6 @@ BankEvent
 - replace with other types of events eg arrival
 
 Encapsulation 
-- 'customer' should not access info from `counter`
+- `customer` should not access info from `counter`
   
 
