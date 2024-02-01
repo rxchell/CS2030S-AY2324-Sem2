@@ -25,8 +25,8 @@ class Circle {
    */
   public boolean contains(Point p) {
     // TODO;
-    double dx = p.getX() - this.c.getX();        // use getter to access private x 
-    double dy = p.getY() - this.c.getY();
+    double dx = p.getX() - this.c.getX();        // REPLACE WITH this.c.distanceTo(p) INSTEAD OF getter to access private x 
+    double dy = p.getY() - this.c.getY();        //
     double distanceSq = dx * dx + dy * dy;
     return distanceSq <= this.r * this.r;
   }
