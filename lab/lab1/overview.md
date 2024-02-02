@@ -1,12 +1,40 @@
+Nouns (class names)
+- Counter
+- Customer
+- Bank
+
+Attributes: 
+- Time (Events)
+- Counters (Bank)
+- Availability (Counters)
+
+Verbs (methods)
+- `Counter` serves method which accepts `customer`
+- Events alter states & generate events
+- Customer arrives & goes to counter & departs
+
+Abstract class 
+- Need details of event type or what simulation simulates (no concrete implementation is possible)
+- `Events` (multiple kinds of events eg arrival, service start, service ends which can be child classes)
+- `Simulation` (only one implementation - BankSimulation)
+
+BankEvent 
+- replace with other types of events eg arrival
+
+Encapsulation 
+- `customer` should not access info from `counter`
+  
+
+
 ### Bank
 
-bank counters
+HAS Counters
 
 - In the beginning, all bank counters are available.
 - A counter becomes unavailable when it is serving a customer, and
 - becomes available again after servicing a customer.
 
-customer 
+HAS Customer 
 
 - A customer, upon arrival at the bank, goes to the first available counter.
 - If no counter is available, the customer departs
@@ -42,6 +70,7 @@ new Simulator(sim).run();     // call run
 
 ### `BankSimulation` class 
 - concrete implementation of a Simulation
+- stores information about counters
 
 - reading the inputs from the standard inputs,
 - initialize the bank counters (represented with boolean available arrays)
@@ -53,6 +82,7 @@ new Simulator(sim).run();     // call run
 
 ### `BankEvent` class (replace with new classes)
 - concrete implementation of Event
+- stores and uses info about bank, customers & counters
 
 - This class overrides the simulate method to simulate the customer and counter behavior.
 
