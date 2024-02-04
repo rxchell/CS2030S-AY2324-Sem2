@@ -4,16 +4,17 @@ class ArrivalEvent extends Event {
   private Counter counter;
   private Counter[] available;
 
-  public ArrivalEvent(double time, Customer customer, double serviceTime, Counter[]      available) {
+  public ArrivalEvent(double time, Customer customer, double serviceTime, Counter counter, Counter[] available) {
     super(time);
     this.customer = customer;
     this.serviceTime = serviceTime;
+    this.counter = counter
     this.available = available;
   }
 
   @Override
   public String toString() {
-    return String.format(": Customer %d arrives", this.customer.getCustomerId) + super.  toString();
+    return String.format(": Customer %d arrives", this.customer.getCustomerId) + super.toString();
   }
 
   @Override
@@ -22,7 +23,7 @@ class ArrivalEvent extends Event {
     if (counter == -1) {
       return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
     } else {
-      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.    serviceTime, counter, this.available) };
+      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.serviceTime, counter, this.available) };
     }
   }
 
