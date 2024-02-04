@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 /**
  * This class implements a bank simulation.
  *
+ * @author Rachel Tai Ke Jia 
  * @version CS2030S AY23/24 Semester 2
  */
 
@@ -30,17 +33,16 @@ class BankSimulation extends Simulation {
     initEvents = new Event[sc.nextInt()];
     int numOfCounters = sc.nextInt();
 
-    available = new boolean[numOfCounters];
+    available = new Counter[numOfCounters];
     for (int i = 0; i < numOfCounters; i++) {
-      available[i] = true;
+      available[i] = new Counter();
     }
 
     int id = 0;
     while (sc.hasNextDouble()) {
       double arrivalTime = sc.nextDouble();
       double serviceTime = sc.nextDouble();
-      initEvents[id] = new Event(Event.ArrivalEvent,
-          arrivalTime, id, serviceTime, available);
+      initEvents[id] = new ArrivalEvent(arrivalTime, new Customer(), serviceTime,        available);
       id += 1;
     }
   }
