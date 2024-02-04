@@ -1,19 +1,23 @@
 class Counter {
-    private final int counterId;
-    private boolean available;
-    private Customer c;
+    private final int counterId;  // identifier should be final
+    privare static int lastId = 0; // id of the latest counter instance 
+    private boolean isAvailable;
 
     public Counter() {
-        this.counterId = counterId;
-        this.available = true;
-        this.c = c;
+        this.counterId = Counter.lastId;
+        Counter.lastId += 1;
+        this.available = true; // initial state of counter 
     }
 
-    public void serve(Customer c) {
-        this.available = false;
+    public int getCounterId() {
+      return this.counterId;
     }
 
-    public void afterServing(Customer c) {
-        this.available = true;
+    public boolean getIsAvailable() {
+      return this.isAvailable;
+    }
+
+    public void setIsAvailable(boolean state) {
+      isAvailable = state;
     }
 }
