@@ -1,25 +1,29 @@
-public class ServiceEndEvent extends Event {
-  public int customerId;
-  public double serviceTime;
-  public int counterId;
-  public boolean[] available;
+/** 
+ * @author Rachel Tai Ke Jia
+ **/
 
-  public ServiceEndEvent(double time, int customerId, double serviceTime, int counterId, boolean[] available) {
+class ServiceEndEvent extends Event {
+  private Customer customer;
+  private double serviceTime;
+  private Counter counter;
+  private Counter[] available;
+
+  public ServiceEndEvent(double time, Customer customer, double serviceTime, Counter      counter, Counter[] available) {
     super(time);
-    this.customerId = customerId;
+    this.customer = customer;
     this.serviceTime = serviceTime;
-    this.counterId = counterId;
+    this.counter = counter;
     this.available = available;
   }
 
   @Override
   public String toString() {
-    return String.format(": Customer %d service done (by Counter %d)", this.customerId,  this.counterId) + super.toString();
+    return String.format(": Customer %d service done (by Counter %d)", this.customer.     getCustomerId, this.counter.getCounterId) + super.toString();
   }
 
   @Override
   public Event[] simulate() {
-    this.available[this.counterId] = true;
-    return new Event[] { new DepartureEvent(this.getTime(), this.customerId) };
+    this.counter.setIsAvailable(true);
+    return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
   }
 }
