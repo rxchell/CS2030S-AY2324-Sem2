@@ -1,17 +1,17 @@
 class Counter {
     private final int counterId;
-    private boolean isAvailable;
+    private boolean available;
 
     public Counter() {
         this.counterId = counterId;
-        this.isAvailable = true;
+        this.available = true;
     }
 
     public void serve(Customer c) {
-        this.isAvailable = false;
+        this.available = false;
     }
 
     public void afterServing(Customer c) {
-        this.isAvailable = true;
+        this.available = true;
     }
 }
