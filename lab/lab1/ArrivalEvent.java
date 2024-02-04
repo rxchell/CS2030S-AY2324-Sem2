@@ -1,33 +1,34 @@
-public class ArrivalEvent extends Event {
-  private int customerId;
+class ArrivalEvent extends Event {
+  private Customer customer;
   private double serviceTime;
-  private boolean[] available;
+  private Counter counter;
+  private Counter[] available;
 
-  public ArrivalEvent(double time, int customerId, double serviceTime, boolean[]         available) {
+  public ArrivalEvent(double time, Customer customer, double serviceTime, Counter[]      available) {
     super(time);
-    this.customerId = customerId;
+    this.customer = customer;
     this.serviceTime = serviceTime;
     this.available = available;
   }
 
   @Override
   public String toString() {
-    return String.format(": Customer %d arrives", this.customerId) + super.toString();
+    return String.format(": Customer %d arrives", this.customer.getCustomerId) + super.  toString();
   }
 
   @Override
   public Event[] simulate() {
     int counter = findAvailableCounter();
     if (counter == -1) {
-      return new Event[] { new DepartureEvent(this.getTime(), this.customerId) };
+      return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
     } else {
-      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customerId, this.  serviceTime, counter, this.available) };
+      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.    serviceTime, counter, this.available) };
     }
   }
 
   private int findAvailableCounter() {
     for (int i = 0; i < this.available.length; i++) {
-      if (this.available[i]) {
+      if (this.available[i].getIsAvailable()) {
         return i;
       }
     }
