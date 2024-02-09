@@ -1,38 +1,28 @@
+/** 
+ * @author Rachel Tai Ke Jia
+ **/
+
 class ArrivalEvent extends Event {
   private Customer customer;
-  private double serviceTime;
-  private Counter counter;
-  private Counter[] available;
+  private Bank bank;;
 
-  public ArrivalEvent(double time, Customer customer, double serviceTime, Counter counter, Counter[] available) {
-    super(time);
+  public ArrivalEvent(Customer customer, Bank bank) {
     this.customer = customer;
-    this.serviceTime = serviceTime;
-    this.counter = counter
-    this.available = available;
+    this.bank = bank;
   }
 
   @Override
   public String toString() {
-    return String.format(": Customer %d arrives", this.customer.getCustomerId) + super.toString();
+    return String.format(": %s arrives", customer.toString()) + super.toString();
   }
 
   @Override
   public Event[] simulate() {
-    int counter = findAvailableCounter();
-    if (counter == -1) {
-      return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
+    int c = bank.findAvailableCounter();
+    if (c == -1) {
+      return new Event[] { new DepartureEvent(this.customer) };
     } else {
-      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.serviceTime, counter, this.available) };
+      return new Event[] { new ServiceBeginEvent(this.customer, this.bank.Counters[c]) };
     }
-  }
-
-  private int findAvailableCounter() {
-    for (int i = 0; i < this.available.length; i++) {
-      if (this.available[i].getIsAvailable()) {
-        return i;
-      }
-    }
-    return -1;
   }
 }
