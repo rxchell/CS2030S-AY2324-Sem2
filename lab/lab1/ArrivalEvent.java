@@ -4,7 +4,7 @@
 
 class ArrivalEvent extends Event {
   private Customer customer;
-  private Bank bank;;
+  private Bank bank;
 
   public ArrivalEvent(Customer customer, Bank bank) {
     this.customer = customer;
