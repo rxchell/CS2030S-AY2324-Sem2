@@ -1,23 +1,32 @@
+/** 
+ * @author Rachel Tai Ke Jia
+ **/
+
 class Counter {
-    private final int counterId;  // identifier should be final
-    privare static int lastId = 0; // id of the latest counter instance 
+    private int counterId;  // identifier should be final
+    private Customer servingCustomer;
     private boolean isAvailable;
 
     public Counter() {
-        this.counterId = Counter.lastId;
-        Counter.lastId += 1;
-        this.available = true; // initial state of counter 
+      this.counterId = counterId;
+      this.servingCustomer = servingCustomer;
+      this.isAvailable = true;
     }
 
-    public int getCounterId() {
-      return this.counterId;
-    }
-
-    public boolean getIsAvailable() {
+    public boolean getIsAvailable(){
       return this.isAvailable;
     }
 
-    public void setIsAvailable(boolean state) {
-      isAvailable = state;
+    public void serve(Customer servingCustomer) {
+      this.isAvailable = false;
+    }
+
+    public void finish(Customer servingCustomer) {
+      this.isAvailable = true;
+    }
+
+    @Override
+    public String toString() {
+      return String.format("Counter  %d", this.counterId);
     }
 }
