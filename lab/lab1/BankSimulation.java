@@ -12,7 +12,7 @@ class BankSimulation extends Simulation {
   /** 
    * The availability of counters in the bank. 
    */
-  private boolean Counter[] available;
+  private Bank bank;
 
   /** 
    * The list of customer arrival events to populate
@@ -33,16 +33,14 @@ class BankSimulation extends Simulation {
     initEvents = new Event[sc.nextInt()];
     int numOfCounters = sc.nextInt();
 
-    available = new Counter[numOfCounters];
-    for (int i = 0; i < numOfCounters; i++) {
-      available[i] = new Counter();
-    }
+    bank = new Bank(numOfCounters);
 
     int id = 0;
     while (sc.hasNextDouble()) {
       double arrivalTime = sc.nextDouble();
       double serviceTime = sc.nextDouble();
-      initEvents[id] = new ArrivalEvent(arrivalTime, new Customer(), serviceTime,        available);
+      Customer c = new Customer(arrivalTime, serviceTime);
+      initEvents[id] = new ArrivalEvent(arrivalTime, c, bank);
       id += 1;
     }
   }
