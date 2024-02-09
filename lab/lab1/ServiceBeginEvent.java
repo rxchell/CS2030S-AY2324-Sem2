@@ -1,26 +1,24 @@
-public class ServiceBeginEvent extends Event {
-  private Customer customer;;
-  private double serviceTime;
-  private Counter counter;
-  private Counter[] available;
+/** 
+ * @author Rachel Tai Ke Jia
+ **/
 
-  public ServiceBeginEvent(double time, Customer customer, double serviceTime, Counter counter, Counter[] available) {
-    super(time);
+class ServiceBeginEvent extends Event {
+  private Customer customer;
+  private Counter counter;
+
+  public ServiceBeginEvent(Customer customer, Counter counter) {
     this.customer = customer;
-    this.serviceTime = serviceTime;
     this.counter = counter;
-    this.available = available;
   }
 
   @Override
   public String toString() {
-    return String.format(": Customer %d service begin (by Counter %d)", this.customer.getCustomerId(), this.counter.getCounterId()) + super.         toString();
+    return String.format(": %s service begin by (%s)", this.customer.toString(), this.counter.toString()) + super.toString();
   }
 
   @Override
   public Event[] simulate() {
-    this.counter.setIsAvailable(false);
-    double endTime = this.getTime() + this.serviceTime;
-    return new Event[] { new ServiceEndEvent(endTime, this.customer, this.serviceTime, this.counter, this.available) };
+    this.counter.serve(customer);
+    return new Event[] { new ServiceEndEvent(this.customer, this.counter) };
   }
 }
