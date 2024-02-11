@@ -12,14 +12,14 @@ class Customer {
   private double serviceTime;
   private double arrivalTime;;
 
-  public Customer(int customerId,double serviceTime, double arrivalTime, int noOfTotalCounters) {
+  public Customer(int customerId,double serviceTime, double arrivalTime) {
     this.customerId = customerId;
     this.serviceTime = serviceTime;
     this.arrivalTime = arrivalTime;
   }
 
   public int getEndTime(double arrivalTime) {
-    return this.serviceTime + arrivalTime;
+    return (int) (this.serviceTime + arrivalTime);
   }
 
   @Override
