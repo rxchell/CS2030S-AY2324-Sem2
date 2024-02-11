@@ -9,13 +9,16 @@ class Bank {
     this.counters = counters;
   }
 
+  public Counter[] getCounters(){
+    return this.counters;
+  }
+
   public int findAvailableCounter() {
     for (int i = 0; i < this.counters.length; i++) {
-      if (this.counters[i].GetIsAvailable()) {
+      if (this.counters[i] != null && this.counters[i].getIsAvailable()) {
         return i;
       }
     }
     return -1;
   }
 }
-
