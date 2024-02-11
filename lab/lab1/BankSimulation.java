@@ -29,21 +29,23 @@ class BankSimulation extends Simulation {
    *           sequence of (arrival time, service time) pair, each
    *:          pair represents a customer.
    */
+
   public BankSimulation(Scanner sc) {
     initEvents = new Event[sc.nextInt()];
     int numOfCounters = sc.nextInt();
 
-    bank = new Bank(numOfCounters);
+    bank = new Bank(new Counter[numOfCounters]);
 
     int id = 0;
     while (sc.hasNextDouble()) {
       double arrivalTime = sc.nextDouble();
       double serviceTime = sc.nextDouble();
-      Customer c = new Customer(arrivalTime, serviceTime);
+      Customer c = new Customer(id, arrivalTime, serviceTime);
       initEvents[id] = new ArrivalEvent(arrivalTime, c, bank);
       id += 1;
     }
   }
+
 
   /**
    * Retrieve an array of events to populate the 
