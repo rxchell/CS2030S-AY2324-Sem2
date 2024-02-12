@@ -10,6 +10,11 @@ A set of test inputs is provided as part of the skeleton, named Ex2.x.in under t
 java Ex2 < inputs/Ex2.1.in
 ```
 
+Remove OUT file
+```Java
+rm OUT
+```
+
 Save the output by redirecting it into a file:
 ```Java
 java Ex2 < inputs/Ex2.1.in > OUT
