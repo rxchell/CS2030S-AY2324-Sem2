@@ -1,7 +1,3 @@
-/** 
- * @author Rachel Tai Ke Jia
- **/
-
 class ServiceEndEvent extends Event {
   private Customer customer;
   private Counter counter;
@@ -14,7 +10,7 @@ class ServiceEndEvent extends Event {
 
   @Override
   public String toString() {
-    return String.format(": %s service done (by %s)", customer.toString(), counter.            toString()) + super.toString();
+    return super.toString() + String.format(": %s service done (by %s)", customer.toString(), counter.toString());
   }
 
   @Override
@@ -23,4 +19,3 @@ class ServiceEndEvent extends Event {
     return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
   }
 }
-
