@@ -22,4 +22,6 @@ Ctrl + C
 
 
 ### Submit to GitHub
-`~cs2030s/submit ex`
+```Java
+~cs2030s/submit exX
+```
