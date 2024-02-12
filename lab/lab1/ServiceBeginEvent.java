@@ -1,7 +1,3 @@
-/** 
- * @author Rachel Tai Ke Jia
- **/
-
 class ServiceBeginEvent extends Event {
   private Customer customer;
   private Counter counter;
@@ -14,12 +10,13 @@ class ServiceBeginEvent extends Event {
 
   @Override
   public String toString() {
-    return String.format(": %s service begin by (%s)", this.customer.toString(), this.     counter.toString()) + super.toString();
+    return super.toString() + String.format(": %s service begin (by %s)", this.customer.toString(), this.counter.          toString());
   }
 
   @Override
   public Event[] simulate() {
+    double endTime = this.customer.getArrivalTime() + this.customer.getServiceTime();
     this.counter.serve(customer);
-    return new Event[] { new ServiceEndEvent(this.getTime(), this.customer, this.counter)  };
+    return new Event[] { new ServiceEndEvent(endTime, this.customer, this.counter) };
   }
 }
