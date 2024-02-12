@@ -1,7 +1,3 @@
-/** 
- * @author Rachel Tai Ke Jia
- **/
-
 class ArrivalEvent extends Event {
   private Customer customer;
   private Bank bank;
@@ -14,7 +10,7 @@ class ArrivalEvent extends Event {
 
   @Override
   public String toString() {
-    return String.format(": %s arrives", customer.toString()) + super.toString();
+    return super.toString() + String.format(": %s arrives", customer.toString());
   }
 
   @Override
@@ -23,7 +19,7 @@ class ArrivalEvent extends Event {
     if (c == -1) {
       return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
     } else {
-      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.bank. getCounters()[c]) };
+      return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer, this.bank.getCounters()[c]) };
     }
   }
 }
