@@ -25,8 +25,9 @@ Automatically test your code against all the given inputs/outputs as well as aga
 The expected outputs are given in the outputs directory. You can compare OUT with the expected output with diff or vim. Using vim,
 ```Java
 vim -d OUT outputs/Ex2.1.out
-will open both files and highlight the differences.
 ```
+will open both files and highlight the differences.
+
 
 ### Run
 ```Java
