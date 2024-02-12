@@ -3,7 +3,12 @@
 javac *.java
 ```
 - To compile all .java files in the current directory
-  
+
+### Run
+```Java
+bash test.sh ExX
+```
+- dont need to delete the OUT file
 
 ### `checkstyle`
 https://nus-cs2030s.github.io/2324-s2/style.html
