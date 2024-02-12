@@ -1,7 +1,3 @@
-/**
- * @author: Rachel Tai Ke Jia
- **/
-
 public class DepartureEvent extends Event {
   private Customer customer;
 
@@ -12,7 +8,7 @@ public class DepartureEvent extends Event {
 
   @Override
   public String toString() {
-    return String.format(": %s departed", customer.toString()) + super.toString();
+    return super.toString() + String.format(": %s departed", customer.toString());
   }
 
   @Override
