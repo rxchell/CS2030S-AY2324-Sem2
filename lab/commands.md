@@ -1,4 +1,20 @@
+### Compile
 ```java
 javac *.java
 ```
 - To compile all .java files in the current directory
+  
+
+### `checkstyle`
+https://nus-cs2030s.github.io/2324-s2/style.html
+```Java
+java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
+```
+
+### CLI
+Ctrl + C
+- exit from bash
+
+
+### Submit to GitHub
+`~cs2030s/submit ex`
