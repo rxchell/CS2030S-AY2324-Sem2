@@ -35,4 +35,8 @@ Class Withdrawal task extends Task {
 ```
 - `@override`
 
+- cos u need to read from scanner the integer right, and the int is either 0 or 1
+- so in bank simulation, u can do if the int is 0, then instantiate an instance of Withdrawal (or Deposit, depending on the ex description), then pass that Withdrawal instance to the Customer constructor
+- if u do in Customer constructor, u can pass the int to the constructor, then check if the int is 0, then create a new instance of Withdrawal and assign it to a field
+
 
