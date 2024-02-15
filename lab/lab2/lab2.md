@@ -26,7 +26,7 @@ https://nus-cs2030s.github.io/2324-s2/exercises/ex2-task.html
 - Abstract class: Task
 - concrete class: Withdrawal and Deposit
 ```Java
-class withdrawal task extends task{
+Class Withdrawal task extends Task {
   @override
   public Stringtostring() {
     return "withdrawal";
