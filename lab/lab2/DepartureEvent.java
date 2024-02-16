@@ -4,10 +4,10 @@
 
 public class DepartureEvent extends Event {
   private Customer customer;
-  
+
   public DepartureEvent(double time, Customer customer) {
     super(time);
-    this.customer = customer;    
+    this.customer = customer;
   }
 
   @Override
