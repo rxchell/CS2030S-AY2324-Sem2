@@ -1,3 +1,8 @@
+### View 2 files simultaneously 
+```java
+vim -O ClassA.java ClassB.java
+```
+
 ### Compile
 ```java
 javac *.java
