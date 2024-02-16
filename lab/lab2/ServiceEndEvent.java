@@ -5,33 +5,31 @@
 class ServiceEndEvent extends Event {
   private Customer customer;
   private Counter counter;
-  private Queue queue;
+  private Bank bank;
 
-  public ServiceEndEvent(double time, Customer customer, Counter counter, 
-      Queue queue) {
+  public ServiceEndEvent(double time, Customer customer, Counter counter, Bank bank) {
     super(time);
     this.customer = customer;
     this.counter = counter;
-    this.queue = queue;
+    this.bank = bank;
   }
 
   @Override
   public String toString() {
     return super.toString() + ": " + customer.toString() + " " +
-          customer.getTask() + " done (by " +
-                 counter.toString() + ")";
+          this.customer.taskType(this.customer.getTask()) + " done (by " +
+                 this.counter.toString() + ")";
   }
 
   @Override
   public Event[] simulate() {
     this.counter.finish(customer);
-    boolean empty = queue.isEmpty();
-    
-    if (empty == false) { 
-      Customer c = (Customer) queue.deq();
+    boolean empty = this.bank.isQueueEmpty();
+
+    if (empty == false) {
+      Customer c = this.bank.removeCustomerFromQueue();
       return new Event[] { new DepartureEvent(this.getTime(), this.customer),
-        new ServiceBeginEvent(this.getTime(), c, 
-            this.counter, this.queue) };
+        new ServiceBeginEvent(this.getTime(), c, this.counter, this.bank) };
     } else {
       return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
     }
