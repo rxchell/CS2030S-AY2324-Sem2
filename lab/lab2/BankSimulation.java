@@ -36,21 +36,20 @@ class BankSimulation extends Simulation {
 
     int numOfCounters = sc.nextInt();
     int queueLength = sc.nextInt();
-    bank = new Bank(numOfCounters, queueLength);
     queue = new Queue(queueLength);
+    bank = new Bank(numOfCounters, queue, null);  // initialise the bank
 
     int id = 0;
     while (sc.hasNextDouble()) {
       double arrivalTime = sc.nextDouble();
       double serviceTime = sc.nextDouble();
 
-      int taskType = sc.nextInt();
-      Task task = new Task(taskType);
+      int task = sc.nextInt();
 
       Customer c = new Customer(id, arrivalTime, serviceTime, task);
-      
-      initEvents[id] = new ArrivalEvent(arrivalTime, c, bank, queue);
-      
+
+      initEvents[id] = new ArrivalEvent(arrivalTime, c, bank);
+
       id += 1;
     }
   }
