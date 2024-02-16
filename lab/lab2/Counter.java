@@ -10,9 +10,9 @@ class Counter {
   public Counter(int counterId) {
     this.counterId = counterId;
     this.servingCustomer = null;
-    this.isAvailable = true; 
+    this.isAvailable = true;
   }
-    
+
   public boolean getIsAvailable() {
     return this.isAvailable;
   }
@@ -26,7 +26,7 @@ class Counter {
     this.servingCustomer = null;
     this.isAvailable = true;
   }
-    
+
   @Override
   public String toString() {
     return "S" + this.counterId;
