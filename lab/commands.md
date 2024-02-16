@@ -1,7 +1,5 @@
 ### Retrieve the skeleton code 
-``Java
-~cs2030s/get exX
-```
+`~cs2030s/get exX`
 
 ### View 2 files simultaneously 
 ```java
