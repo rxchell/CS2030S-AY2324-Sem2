@@ -30,6 +30,10 @@ class Bank {
     return this.counters;
   }
 
+  public Counter getCounter(int c) {
+    return this.counters[c];
+  }
+
   public int findAvailableCounter() {
     for (int i = 0; i < this.counters.length; i++) {
       if (this.counters[i].getIsAvailable()) {
