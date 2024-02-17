@@ -7,7 +7,7 @@ class ServiceEndEvent extends Event {
   private Counter counter;
   private Bank bank;
 
-  public ServiceEndEvent(double time, Customer customer, Counter counter, Bank bank) {
+  public ServiceEndEvent(double time, Customer customer, Counter counter, Bank      bank) {
     super(time);
     this.customer = customer;
     this.counter = counter;
@@ -26,7 +26,7 @@ class ServiceEndEvent extends Event {
     this.counter.finish(customer);
     boolean empty = this.bank.isQueueEmpty();
 
-    if (empty == false) {
+    if (!empty) {
       Customer c = this.bank.removeCustomerFromQueue();
       return new Event[] { new DepartureEvent(this.getTime(), this.customer),
         new ServiceBeginEvent(this.getTime(), c, this.counter, this.bank) };
