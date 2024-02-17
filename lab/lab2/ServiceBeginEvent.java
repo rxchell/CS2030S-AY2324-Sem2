@@ -7,7 +7,7 @@ class ServiceBeginEvent extends Event {
   private Counter counter;
   private Bank bank;
 
-  public ServiceBeginEvent(double time, Customer customer, Counter counter, Bank bank) {
+  public ServiceBeginEvent(double time, Customer customer, Counter counter, Bank    bank) {
     super(time);
     this.customer = customer;
     this.counter = counter;
