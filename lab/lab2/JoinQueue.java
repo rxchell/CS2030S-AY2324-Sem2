@@ -6,7 +6,7 @@ class JoinQueue extends Event {
   private Customer customer;
   private Bank bank;
 
-  public JoinQueue(double time, Customer customer, Bank bank) {
+  public JoinQueue(Customer customer, Bank bank) {
     super(customer.getArrivalTime());
     this.customer = customer;
     this.bank = bank;
