@@ -58,6 +58,11 @@ java -jar ~cs2030s/bin/checkstyle.jar -c ~cs2030s/bin/cs2030_checks.xml *.java
 Ctrl + C
 - exit from bash
 
+rename file 
+```java
+mv foo.txt bar.txt  //rename foo.txt into bar.txt
+```
+
 
 ### Submit to GitHub
 ```Java
