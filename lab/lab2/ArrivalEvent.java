@@ -27,11 +27,11 @@ class ArrivalEvent extends Event {
       if (full == true) {
         return new Event[] { new DepartureEvent(this.getTime(), this.customer) };
       } else {
-        return new Event[] { new JoinQueue(this.getTime(), this.customer, this.bank) };
+        return new Event[] { new JoinQueue(this.customer, this.bank) };
       }
     } else {
       return new Event[] { new ServiceBeginEvent(this.getTime(), this.customer,
-            this.bank.getCounters()[c], this.bank) };
+            this.bank.getCounter(c), this.bank) };
     }
   }
 }
