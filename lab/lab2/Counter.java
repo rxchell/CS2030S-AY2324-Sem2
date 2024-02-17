@@ -9,7 +9,6 @@ class Counter {
 
   public Counter(int counterId) {
     this.counterId = counterId;
-    this.servingCustomer = null;
     this.isAvailable = true;
   }
 
@@ -18,12 +17,10 @@ class Counter {
   }
 
   public void serve(Customer servingCustomer) {
-    this.servingCustomer = servingCustomer;
     this.isAvailable = false;
   }
 
   public void finish(Customer servingCustomer) {
-    this.servingCustomer = null;
     this.isAvailable = true;
   }
 
