@@ -12,6 +12,10 @@ javac *.java
 ```
 - To compile all .java files in the current directory
 
+```Java
+javac -Xlint:unchecked -Xlint:rawtypes *.java
+```
+
 ### Test
 A set of test inputs is provided as part of the skeleton, named Ex2.x.in under the inputs directory. You can run them with, for instance:
 ```java
