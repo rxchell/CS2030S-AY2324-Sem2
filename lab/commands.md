@@ -35,7 +35,7 @@ java Ex2 < inputs/Ex2.1.in > OUT
 
 Automatically test your code against all the given inputs/outputs as well as against the `checkstyle` by running:
 ```Java
-./test.sh Ex2
+./test.sh ExX
 ```
 
 ### Debugging
