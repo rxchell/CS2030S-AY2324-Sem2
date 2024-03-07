@@ -13,3 +13,4 @@ jshell Circle.java    // load into interpreter
 <img width="688" alt="Screenshot 2024-03-07 at 13 29 07" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/5a94fde9-3c1c-4921-8ea9-c152e390c980">
 
 number (of lines to go down) + "j" (to go down)
+<img width="705" alt="Screenshot 2024-03-07 at 13 32 58" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/9227e724-f37a-49c5-a230-021c6af41713">
