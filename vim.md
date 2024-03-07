@@ -14,3 +14,7 @@ jshell Circle.java    // load into interpreter
 
 number (of lines to go down) + "j" (to go down)
 <img width="705" alt="Screenshot 2024-03-07 at 13 32 58" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/9227e724-f37a-49c5-a230-021c6af41713">
+
+<img width="680" alt="Screenshot 2024-03-07 at 20 08 26" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/5e7e6787-b5de-4305-823a-a5cb0d4744bd">
+<img width="684" alt="Screenshot 2024-03-07 at 20 08 50" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/e669d062-3f7f-47d5-9716-8ac5f5b2a701">
+<img width="596" alt="Screenshot 2024-03-07 at 20 34 33" src="https://github.com/rxchell/CS2030S-23-24-Sem2/assets/133939424/260e81a2-4659-4847-96e8-6e9418911c0e">
