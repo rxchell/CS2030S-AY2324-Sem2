@@ -11,11 +11,11 @@ Move BooleanCondition.java to cs2030s/fp
 mv BooleanCondition.java cs2030s/fp
 ```
 
-Tell Java that BooleanCondition is part of a package. Add the line
+**Tell Java that BooleanCondition is part of a package. Add the line**
 ```Java
 package cs2030s.fp;
 ```
-as the first line of BooleanCondition.java
+**as the first line of BooleanCondition.java**
 
 Make a class/interface accessible from outside the package. Add the access modifier `public` to the declaration:
 ```Java
