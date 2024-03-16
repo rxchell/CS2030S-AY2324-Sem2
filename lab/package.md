@@ -27,3 +27,8 @@ To avoid typing its full name, import it at the top of `Box.java`;
 ```Java
 import cs2030s.fp.BooleanCondition;
 ```
+
+If you have set up everything correctly, you should be able to run the following in jshell from your ex5-username directory:
+```vim
+jshell> import cs2030s.fp.BooleanCondition;
+```
