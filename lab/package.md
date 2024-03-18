@@ -32,3 +32,14 @@ If you have set up everything correctly, you should be able to run the following
 ```vim
 jshell> import cs2030s.fp.BooleanCondition;
 ```
+
+**Compile**
+compile all files within cs2030s/fp folder
+```Java
+javac cs2030s/fp/*.java
+```
+
+compile only specific file, you can indicate the filename, e.g. 
+```Java
+javac cs2030s/fp/Maybe.java
+```
