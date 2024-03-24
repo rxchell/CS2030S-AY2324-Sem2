@@ -194,7 +194,7 @@ public abstract class Maybe<T> {
       return Maybe.<T>none();
     }
 
-/** @return new Some<T> with the value inside transformed by the Transformer instance.
+  /** @return new Some<T> with the value inside transformed by the Transformer instance.
      *
      * use this.get() instead of this.content in argument for transform
      *
@@ -244,7 +244,7 @@ public abstract class Maybe<T> {
     }
   }
 
-  /** static factory of
+/** static factory of
    * @return instance of Some if the input is not null, and 
    * @return None otherwise
    */
