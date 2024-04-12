@@ -1,11 +1,13 @@
 public abstract class Compute<T> {
 
   public static <T> Compute<T> base(long s) {
-    return new Base<>(s);
+    Compute<T> b = (Compute<T>) new Base<>(s);
+    return b;
   }
 
   public static <T> Compute<T> recursive(long n, long s) {
-    return new Recursive<>(n, s);
+    Compute<T> r = (Compute<T>) new Recursive<>(n, s);
+    return r;
   }
 
   static Compute<Long> sum(long n, long s) {
@@ -15,9 +17,18 @@ public abstract class Compute<T> {
       return recursive(n, s);
     }
   }
+
+  public abstract boolean isRecursive();
+
+  public abstract void recurse();
+
+  public abstract void evaluate();
   
   private static class Base<T> extends Compute<T> {
+  
   }
+  
   private static class Recursive<T> extends Compute<T> {
   }
+  
 }
