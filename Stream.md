@@ -54,8 +54,8 @@ Stream<Long> omega(int n){
 ```Java
 <T> boolean isSublist(List<? extends T> l, List<? super T> m) {
   return l.stream()
-    .filter(l -> m.stream().anyMatch(m -> m.equals(l)))
-    .allMatch(x -> x == true);
+    .allMatch(x -> m.stream()
+      .anyMatch(y -> y.equals(x)));
 }
 ```
 
