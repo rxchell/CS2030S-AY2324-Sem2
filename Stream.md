@@ -7,8 +7,8 @@ Stream<BigInteger> fib(int n) {
   .map(pair -> pair.first)
   .limit(n);
 }
-```
 > iterate: (1,1), (1,2), (2,3), (3,5)...
+```
 
 ## combine elements from each list
 ```Java
@@ -20,7 +20,7 @@ Stream<BigInteger> fib(int n) {
     .flatMap(t -> list2.stream()
     .map(u -> func.apply(t,u)));
 }
-```
+
 > List<Integer> list1 = list.of(1, 2, 3, 4)
 > List<String> list2 = list.of("A", "B", "C", "D")
 > product(list1, list2 (i, s) -> i + s).forEach(System.out::printIn)
@@ -29,5 +29,26 @@ Stream<BigInteger> fib(int n) {
 > list2.stream().map(u -> func.apply(t,u))  // eg using 1 from list1, Stream.of(1A, 1B)
 > list1.stream().map(t -> list2.stream().map(u -> func.apply(t,u)) // Stream.of([1A, 1B], [2A, 2B], [3A, 3B], [4A, 4B])
 > list1.stream().flatMap(t -> list2.stream().map(u -> func.apply(t,u)) // Stream.of(1A, 1B, 2A, 2B, 3A, 3B, 4A, 4B)
+```
+
+## first n omega numbers (number of distinct prime factors for the number i)
+```Java
+boolean isPrime(int n) {
+  return IntStream
+    .range(2, n)
+    .noneMatch(x -> x%n == 0);
+}
+
+Stream<Long> omega(int n){
+  return Stream
+    .iterate(1, i -> i <= n, i -> i + 1)
+    .map(Stream
+      .iterate(2, x -> x<= i, x -> x + 1)
+      .filter(x -> (i % x == 0 and isPrime(x)))
+      .count()
+      );
+} 
+```
+
 
   
