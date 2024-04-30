@@ -1,15 +1,20 @@
-# InfiniteList 
+# InfiniteList
+```Java
 InfiniteList(Producer<T> head, Producer<InfiniteList<>> tail)
+```
   
 ## Infinite List of Fibonacci numbers 
+```Java
 InfiniteList<BigInteger> fib(Biginteger a, BigInteger b) {
   return new InfiniteList<>(
     () -> a,
     () -> fib(b, a.add(b))
   );
 }
+```
 
 ## InfiniteList::zipWith
+```Java
 public <S, R> InfiniteList<R> zipWith(
     InfiniteList<? extends S> list;
     Transformer<? super T, ? extends Transformer<? super S, ? extends R>> mapper) {
@@ -18,6 +23,7 @@ public <S, R> InfiniteList<R> zipWith(
     () -> this.tail().zipWith(list.tail(), mapper)
   );
 }
+```
 
 
 
