@@ -60,4 +60,23 @@ Stream<Long> omega(int n){
 ```
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
