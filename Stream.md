@@ -50,7 +50,7 @@ Stream<Long> omega(int n){
 } 
 ```
 
-# sublist of list m if every element in list l is also in m 
+## sublist of list m if every element in list l is also in m 
 ```Java
 <T> boolean isSublist(List<? extends T> l, List<? super T> m) {
   return l.stream()
@@ -59,6 +59,18 @@ Stream<Long> omega(int n){
 }
 ```
 
+## estimatePi
+```Java
+public static double estimatePi(int numOfPoints, int seed) {
+  RandomPoint.setSeed(seed);
+  Circle c = new Circle(new Point(1, 1,), 1);
+  long n = Stream.generate(() -> new RandomPoint(0, 1, 0, 1))
+    .limit(numOfPoints)
+    .filter(p -> c.contains(p))
+    .count()
+  return 4.0 * n / numOfPoints;
+}
+```
 
 
 
