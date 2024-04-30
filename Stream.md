@@ -50,5 +50,12 @@ Stream<Long> omega(int n){
 } 
 ```
 
+# sublist of list m if every element in list l is also in m 
+<T> boolean isSublist(List<? extends T> l, List<? super T> m) {
+  return l.stream()
+    .filter(l -> m.stream().anyMatch(y -> y.equals(x)))
+    .allMatch(x -> x == true);
+}
+
 
   
