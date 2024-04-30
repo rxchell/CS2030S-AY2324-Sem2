@@ -10,3 +10,26 @@ m.flatMap(x -> Monad.of(f(x)).flatMap(x -> Monad.of(g(x)))) by Monad's Associati
 m.flatMap(x -> Monad.of(g(f(x)))) by Monad's Left Identity Law
 m.map(x -> g(f(x))) by the implementation
 ```
+
+# ASSOCIATIVITY 
+BiFunction<Integer, Integer, Integer> accumulator = (a, x) -> {
+  return 2*a + x;
+}
+
+BinaryOperator<Integer> combiner = (a1, a2) -> {
+  return a1 + a2;
+}
+
+Stream.of(1, 2, 3, 4)
+  .reduce(0, (a,x) -> 2*a + x, (a1, a2) -> a1 + a2 );
+
+## Check associativity 
+Accumulator is not associative: 2*((2*1)+2)+3 = 11 vs (2*3)+((2*1)+2)=10
+Combiner is associative: (1+2)+3 = 1+(2+3)
+
+## Check compatibility 
+c(u, a(0,t)) = ((2*0)+1)+((2*0)+2) = 3
+a(u, t) = 1 + 2 = 3
+
+
+
